@@ -4,11 +4,11 @@ from.models import BlogPost
 from .serializers import BlogPostSerializer
 
 # Create your views here.
-class BlogPostListCreate(generics.ListCreateAPIview):
-    queryset = BlogPost.objectsall()
+class BlogPostListCreate(generics.ListCreateAPIView):
+    queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
 
-class BlogpostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIview):
-    queryset = BlogPost.objectsall()
+class BlogpostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = BlogPost.objects.all()
     serializer_class = BlogPostSerializer
     lookup_field = "pk"
