@@ -20,7 +20,6 @@ class BlogpostRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = BlogPostSerializer
     lookup_field = "pk"
 
-from rest_framework.views import APIView
 
 class BlogPostList(APIView):
     def get(self, request, format=None):
