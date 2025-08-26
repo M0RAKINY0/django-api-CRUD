@@ -1,10 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import generics,status
 from rest_framework.response import Response
 from.models import BlogPost
 from .serializers import BlogPostSerializer
-from rest_framework.views import APIView
-
+from rest_framework.views import APIView 
+from django.contrib.auth import login, logout, authenticate 
+from django.contrib import messages 
+from .form import CustomerUserCreationForm, CustomerAuthenticationForm
+from rest_framework.decorators import api_view, permission_classes 
+from rest_framework.response import response 
+from rest_framework import status  
 
 # Create your views here.
 class BlogPostListCreate(generics.ListCreateAPIView):

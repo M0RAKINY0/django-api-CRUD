@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser,BaseUserManager, PermissionsMixin
-# Create your models here.
+from django.utils import timezone
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -39,7 +39,8 @@ class BlogPost(models.Model):
     content = models.TextField()
     published_date = models.DateTimeField(auto_now_add = True)
     updated = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name="posts")
 
     def __str__(self):
         return self.title 
-AUTH_USER_MODEL = "accounts.CustomUser"
+
